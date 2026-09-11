@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Course } from "@/lib/courses";
+import { Course } from "../lib/courses";
 import { Copy, Check, Send, X, AlertCircle } from "lucide-react";
 
 interface CheckoutModalProps {

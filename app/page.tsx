@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Navbar from "@/components/navbar";
-import CheckoutModal from "@/components/checkout-modal";
-import CourseContent from "@/components/course-content";
-import { COURSES, Course } from "@/lib/courses";
+import Navbar from "../components/navbar";
+import CheckoutModal from "../components/checkout-modal";
+import CourseContent from "../components/course-content";
+import { COURSES, Course } from "../lib/courses";
 import { BookOpen, GraduationCap, ShieldCheck, Sparkles, HelpCircle } from "lucide-react";
 
 export default function HomePage() {
@@ -27,7 +27,7 @@ export default function HomePage() {
       <Navbar />
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-8 space-y-12">
-        {/* قسم الترحيب (Hero Section) */}
+        {/* قسم الترحيب */}
         <section className="text-center space-y-4 pt-4 pb-2">
           <div className="relative w-24 h-24 mx-auto rounded-3xl overflow-hidden border-2 border-sky-500/30 shadow-2xl shadow-sky-500/10 bg-gray-900">
             <Image src="/logo.png" alt="PYS TEAM" fill className="object-cover" priority />
@@ -47,7 +47,7 @@ export default function HomePage() {
           </p>
         </section>
 
-        {/* بطاقات اختيار المواد الأربعة */}
+        {/* بطاقات اختيار المواد */}
         <section className="space-y-4">
           <h2 className="text-lg font-bold text-white flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-sky-400" />
@@ -78,7 +78,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* محتوى المادة المختارة (الفيديوهات + التفعيل + بنك الأسئلة) */}
+        {/* محتوى المادة المختارة */}
         <section className="space-y-4">
           <div className="bg-gray-900/40 border border-gray-800/80 rounded-3xl p-6 sm:p-8">
             <div className="border-b border-gray-800 pb-4 mb-6 flex flex-col sm:flex-row justify-between sm:items-center gap-2">
@@ -101,7 +101,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      {/* تذييل الصفحة (Footer) */}
+      {/* تذييل الصفحة */}
       <footer className="border-t border-gray-900 bg-gray-950/40 py-6 text-center text-xs text-gray-500 space-y-2">
         <p>© {new Date().getFullYear()} PYS TEAM — جميع الحقوق محفوظة لطلبة تمريض جامعة اليرموك.</p>
         <p className="text-[11px] text-gray-600">
@@ -109,7 +109,7 @@ export default function HomePage() {
         </p>
       </footer>
 
-      {/* نافذة الاشتراك المنبثقة */}
+      {/* نافذة الاشتراك */}
       {checkoutData.course && checkoutData.packageType && (
         <CheckoutModal
           course={checkoutData.course}
