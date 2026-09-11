@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Course } from "@/lib/courses";
-import { isCourseUnlocked, activateCourseWithCode } from "@/lib/device-lock";
+import { Course } from "../lib/courses";
+import { isCourseUnlocked, activateCourseWithCode } from "../lib/device-lock";
 import TestBankQuiz from "./test-bank-quiz";
 import { PlayCircle, FileText, CheckCircle, Lock, KeyRound, ShieldAlert } from "lucide-react";
 
@@ -36,7 +36,6 @@ export default function CourseContent({ course, onSubscribeClick }: CourseConten
 
   return (
     <div className="space-y-6">
-      {/* في حال كانت المادة مقفلة على هذا الجهاز */}
       {!isUnlocked ? (
         <div className="bg-gray-900/90 border border-gray-800 rounded-3xl p-6 sm:p-8 text-center space-y-6">
           <div className="w-16 h-16 bg-sky-950/60 border border-sky-800/40 rounded-2xl flex items-center justify-center mx-auto text-sky-400">
@@ -50,7 +49,6 @@ export default function CourseContent({ course, onSubscribeClick }: CourseConten
             </p>
           </div>
 
-          {/* خانة إدخال كود التفعيل */}
           <form onSubmit={handleActivate} className="max-w-md mx-auto space-y-3">
             <div className="flex gap-2">
               <input
@@ -76,7 +74,6 @@ export default function CourseContent({ course, onSubscribeClick }: CourseConten
             )}
           </form>
 
-          {/* باقات الاشتراك */}
           <div className="pt-4 border-t border-gray-800">
             <h4 className="text-sm font-semibold text-gray-300 mb-4">أو اختر إحدى الباقات للاشتراك الفوري:</h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto">
@@ -110,9 +107,7 @@ export default function CourseContent({ course, onSubscribeClick }: CourseConten
           </div>
         </div>
       ) : (
-        /* في حال كانت المادة مفعلة ومفتوحة */
         <div className="space-y-6">
-          {/* تبويبات الانتقال بين المحاضرات والملفات والأسئلة */}
           <div className="flex gap-2 p-1.5 bg-gray-900 border border-gray-800 rounded-2xl max-w-md mx-auto">
             <button
               onClick={() => setActiveTab("videos")}
@@ -140,7 +135,6 @@ export default function CourseContent({ course, onSubscribeClick }: CourseConten
             </button>
           </div>
 
-          {/* مشغل الفيديوهات المدمج الداخلي */}
           {activeTab === "videos" && (
             <div className="space-y-6">
               {course.videos.map((vid) => (
@@ -170,12 +164,10 @@ export default function CourseContent({ course, onSubscribeClick }: CourseConten
             </div>
           )}
 
-          {/* قسم بنك الأسئلة */}
           {activeTab === "quiz" && (
             <TestBankQuiz questions={course.questions} courseName={course.name} />
           )}
 
-          {/* قسم الملخصات والدوسيات */}
           {activeTab === "docs" && (
             <div className="space-y-3">
               {course.documents.map((doc) => (
